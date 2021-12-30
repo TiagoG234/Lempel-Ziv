@@ -3,27 +3,27 @@ import sys
 
 def compress(string):
     S = {'':0}
-    bruh = ''
+    counter = ''
     out = ''
     fin = b.BitArray()
     for i in string:
         i = str(int(i))
-        bruh1 = bruh
-        bruh += i
-        if bruh not in S:
+        counter1 = counter
+        counter += i
+        if counter not in S:
             l = len(bin(len(S) - 1)) - 2
-            ind = S[bruh1]
+            ind = S[counter1]
             m = ("{0:0"+str(l)+"b}").format(ind)
             out += m + i
-            S[bruh] = len(S)
-            bruh = ''
+            S[counter] = len(S)
+            counter = ''
         else:
             pass
         
     size = 8
-    if bruh != '':
-        out += bruh
-        last = ("{0:0"+str(size)+"b}").format(len(bruh))
+    if counter != '':
+        out += counter
+        last = ("{0:0"+str(size)+"b}").format(len(counter))
     else:
         last = ("{0:0"+str(size)+"b}").format(0)
 
